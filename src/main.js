@@ -19,21 +19,18 @@ app.use(express.json());
 
 //app.use(morgan('combined'))
 // Template engine
-  app.engine(
-      'hbs',
-      engine({
-          extname: '.hbs',
-      }),
-  );
-app.set('view engine', 
-'hbs');
-app.set('views', path.join(__dirname, 
-  'resources\\views'));
+app.engine(
+    'hbs',
+    engine({
+        extname: '.hbs',
+    }),
+);
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'resources\\views'));
 
 // Routes init: khởi tạo tuyến đường
-route(app);
+route(      app);
 
-app.listen(port, () => {
-    console.log(`Example app liste
-    ning on port ${port}`);
-});
+          app.listen(port, () => {
+              console.log(`Example app listening on port ${port}`);
+          });
