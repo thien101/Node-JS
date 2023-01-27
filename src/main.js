@@ -29,8 +29,8 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources\\views'));
 
 // Routes init: khởi tạo tuyến đường
-route(      app);
+        route(app);
 
-          app.listen(port, () => {
-              console.log(`Example app listening on port ${port}`);
-          });
+        app.listen(port, () => {
+            console.log(`Example app listening on port ${port}`);
+        });
