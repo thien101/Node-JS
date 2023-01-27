@@ -1,32 +1,36 @@
 const express = require('express');
 const path = require('path');
-const { engine } = require ('express-handlebars');
+const { engine } = require('express-handlebars');
 
 const morgan = require('morgan');
 const { extname } = require('path');
 const app = express();
 const port = 3000;
+const route = require('./routes/index');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(morgan('combined'))
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
+app.use(express.json());
+
+//app.use(morgan('combined'))
 // Template engine
-app.engine('hbs', engine({
-    extname: '.hbs',
-  }
-));
+app.engine(
+    'hbs',
+        engine({
+            extname: '.hbs',
+        }),
+);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources\\views'));
 
-
-app.get('/', (req, res) => {
-  res.render('home')
-})  
-
-app.get('/infor', (req, res) => {
-  res.render('infor')
-}) 
+// Routes init: khởi tạo tuyến đường
+route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`);
+});
