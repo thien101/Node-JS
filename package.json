@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "beautiful": "lint-staged",
+    "beautiful": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,scss,json}",
     "start": "nodemon --inspect src/main.js",
     "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,8 @@
   "author": "",
   "license": "ISC",
   "lint-staged": {
-    "src/**/*.{js,scss,json}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    "src/**/*.{js,scss,json}": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,scss,json}",
+    "src//*.{js,json,scss,css,html}": "prettier --single-quote --trailing-comma all --tab-width 4 --write src//.{js,json,scss,css,html} .json"
   },
   "husky": {
     "hook": {
