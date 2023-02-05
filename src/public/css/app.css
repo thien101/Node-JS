@@ -1,8 +1,12 @@
-h2 {
-  color: yellow; }
+.card-course-item {
+  margin-top: 12px; }
 
-h1 {
-  color: red; }
+.card-course-item {
+  margin: 12px auto 12px; }
 
-.home {
-  color: green; }
+.fix {
+  left: -80px; }
+
+.container-table {
+  width: 1500px !important;
+  margin: 4px auto; }

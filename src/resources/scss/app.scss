@@ -1,10 +1,15 @@
 @import 'variable';
 @import 'index.scss';
 
-h1 {
-    color: $red-color;
+.card-course-item {
+    margin: 12px auto 12px;
 }
 
-.home {
-    color: $home-color;
+.fix {
+    left: -80px;
+}
+
+.container-table {
+    width: 1500px !important;
+    margin: 4px auto;
 }
