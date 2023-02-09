@@ -8,6 +8,7 @@ const courseController = require('../app/controllers/courseController');
 router.get('/create', courseController.create);
 router.post('/store', courseController.store);
 router.put('/:id', courseController.update);
+router.delete('/:id', courseController.delete);
 router.get('/:id/edit', courseController.edit);
 router.get('/:slug', courseController.show);
 // router.use('/', inforController.index);
