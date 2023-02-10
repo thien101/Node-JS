@@ -38,14 +38,13 @@ class courseController {
     store(req, res, next) {
         // console.log("in")
         // res.send(req.body);
-        const formData = req.body;
-        //formData.image = 'https://files.fullstack.edu.vn/f8-prod/courses/6.png'
-        formData.videoid = 'z2f7RHgvddc';
-        const course = new Course(formData);
+        //req.body.image = 'https://files.fullstack.edu.vn/f8-prod/courses/6.png'
+        req.body.videoid = 'z2f7RHgvddc';
+        const course = new Course(req.body);
         course
             .save()
             .then(() => {
-                res.redirect('/');
+                res.redirect('/me/stored/courses');
             })
             .catch((err) => {});
     }
@@ -58,8 +57,24 @@ class courseController {
             .catch(next)
     }
 
+    //[PATC] course/:id/restore
+    restore(req, res, next) {
+        //res.send(req.body);
+        Course.restore({_id: req.params.id})
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
     //[delete] course/:id
     delete(req, res, next) {
+        //res.send(req.body);
+        Course.delete({_id: req.params.id},)
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    //[delete] course/:id/force
+    forcedelete(req, res, next) {
         //res.send(req.body);
         Course.deleteOne({_id: req.params.id},)
             .then(() => res.redirect('back'))

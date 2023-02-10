@@ -6,6 +6,8 @@ const meController = require('../app/controllers/meController');
 
 // craate
 router.get('/stored/courses', meController.storedCourse);
+router.get('/trash/courses', meController.trashCourse);
+
 
 
 module.exports = router;
